@@ -71,3 +71,83 @@ router.post("/test-post-4", function(req, res) {
 })
 
 module.exports = router;
+
+
+
+router.post("/test-post1",function(req,res){
+    let e=req.body.element
+    
+    let Name=players.find(x=>x.name===e.name)
+    if(Name){
+        res.send(players)
+    }else{
+        players.push(e)
+        res.send(players)
+    }
+    })
+    
+     
+
+module.exports=router
+let players =
+   [
+       {
+           "name": "manish",
+           "dob": "1/1/1995",
+           "gender": "male",
+           "city": "jalandhar",
+           "sports": [
+               "swimming"
+           ]
+       },
+       {
+           "name": "gopal",
+           "dob": "1/09/1995",
+           "gender": "male",
+           "city": "delhi",
+           "sports": [
+               "soccer"
+           ],
+       },
+       {
+           "name": "lokesh",
+           "dob": "1/1/1990",
+           "gender": "male",
+           "city": "mumbai",
+           "sports": [
+               "soccer"
+           ],
+       },
+   ]
+   module.exports = router;
+   //find missing number starting fr 1
+   router.get("/erchan",function(req,res){
+    let sum=0
+    let arr=[1,2,3,5,6,7]
+    let  n=arr[arr.length-1]
+    let k=(n*(n+1)/2)
+    for(let i=0;i<arr.length;i++)
+    sum=sum+arr[i]
+    let mising =k-sum
+    res.send({data:mising})
+ 
+})
+  module.exports=router
+//find missing number interger starting anywhere
+router.get("/chetan",function(req,res){
+    let sum=0
+    let arrr=[33,34,35,37,38]
+    let c=arrr[0]
+    let n=arrr.length+1
+    let d=arrr[arrr.length-1]
+    let e=(n*(c+d)/2)
+    for (let i=0;i<arrr.length;i++)
+    sum=sum+arrr[i]
+    let mis=e-sum
+    res.send({data:mis})
+ 
+ 
+}
+)
+module.exports=router
+ 
