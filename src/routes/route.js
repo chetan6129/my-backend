@@ -159,5 +159,48 @@ router.post( "/post-query-2", function (req, res){
     res.send( {data: finalArr , status: true})
 })
 
+//problem-1  you will be given an array of persons ( i.e an array of objects )..each person will have  a {name: String , age: Number, votingStatus: true/false(Boolean)}
+//take input in query param as votingAge..and for all the people above that age, change votingStatus as true
 
 module.exports = router;
+router.post("/new",function(req,res){
+    let k=req.query.votingAge
+    let arr=[]
+    for (let i=0;i<person.length;i++){
+        let v=person[i]
+        if(k<v.age){v.votingStatus=true
+            arr.push(v)
+
+        }
+    }
+    res.send(arr)
+})
+person= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+ ]
+ 
+module.exports=router
