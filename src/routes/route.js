@@ -7,8 +7,8 @@ router.get("/test-me", function (req, res) {
     res.send("My first ever api!")
 })
 
-router.post("/createUser", UserController.createUser  )
+router.post("/createnewbook", UserController.createnewbook  )
 
-router.get("/getUsersData", UserController.getUsersData)
+router.get("/getnewbook", UserController.getnewbook)
 
 module.exports = router;
