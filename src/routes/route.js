@@ -11,8 +11,16 @@ router.get("/test-me", function (req, res) {
 router.post("/createUser", UserController.createUser  )
 
 router.get("/getUsersData", UserController.getUsersData)
-
+//question 1
 router.post("/createBook", BookController.createBook  )
+router.post("/authorcol",BookController.aurtor)
+//question 2
+router.get("/search", BookController.s)
+//question 3
+router.get("/searchauthor",BookController.v)
+//question 4
+router.get("/bookprice",BookController.y)
+
 
 router.get("/getBooksData", BookController.getBooksData)
 
