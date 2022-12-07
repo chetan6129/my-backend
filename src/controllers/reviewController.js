@@ -134,8 +134,8 @@ const updateReview = async function (req, res) {
        } else {
            return res.status(400).send({ status: false, message: "can't find book to review " })
        }
-   } catch (error) {
-       res.status(500).send({ status: false, message: error.message });
+   } catch (chetan) {
+       res.status(500).send({ status: false, message: chetan.msg });
    }
 }
 

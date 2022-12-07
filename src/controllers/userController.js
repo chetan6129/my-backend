@@ -1,12 +1,12 @@
 const userModel = require('../models/userModel.js')
 const bookModel = require('../models/bookModel')
-const jwt=require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const mongoose = require('mongoose')
 
 //======================================================createUser============================================================//
 const createUser = async (req, res) => {
     try {
-        let { title, name, phone, email, password,address } = req.body
+        let { title, name, phone, email, password, address } = req.body
 
         if (Object.keys(req.body).length == 0) {
             return res.status(400).send({ status: false, msg: "for registration user data is required" })
@@ -55,12 +55,12 @@ const createUser = async (req, res) => {
         }
 
         if (!(/^[\s]*[0-9a-zA-Z@#$%^&*]{8,15}[\s]*$/).test(password)) {
-        return res.status(400).send({ status: false, msg: "please Enter valid Password and it's length should be 8-15" })
+            return res.status(400).send({ status: false, msg: "please Enter valid Password and it's length should be 8-15" })
         }
-        if(address && typeof address !="object"){
-            return res.status(400).send({status:false,message:"Address should be in object form"})
+        if (address && typeof address != "object") {
+            return res.status(400).send({ status: false, message: "Address should be in object form" })
         }
-      
+
 
 
         let savedData = await userModel.create(req.body);
@@ -109,20 +109,20 @@ const loginUser = async function (req, res) {
             EmailID: User.email,
             Batch: "lithium",
             Group: "10",
-            Project: "project-booksManagementementGroup40",
-          }
-          
-         const  token = jwt.sign( Payload ,"project3-room10-key" ,  {expiresIn: "60m"} )
-      
-          return res.status(200).send({ status: true, message: "token is successfully generated",  token: token })
-      
-      
-        } catch (error) {
-          return res
+            Project: "project-booksManagementementGroup10",
+        }
+
+        const token = jwt.sign(Payload, "project3-room10-key", { expiresIn: "60m" })
+
+        return res.status(200).send({ status: true, message: "token is successfully generated", token: token })
+
+
+    } catch (error) {
+        return res
             .status(500)
             .send({ status: false, message: error.message })
-        }
-      }
+    }
+}
 
- 
+
 module.exports.loginUser = loginUser

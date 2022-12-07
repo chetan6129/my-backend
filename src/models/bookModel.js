@@ -50,7 +50,8 @@ const books = new mongoose.Schema({
     releasedAt: {
         type:String,
         default:null
-    }
+    },
+    bookCover:String
 
 
 }, { timestamps: true })
