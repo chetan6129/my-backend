@@ -65,7 +65,7 @@ const createUrl = async function(req,res){
          /*--------------------set data to redis(cache) server----------------------*/
 
      await redisClient.set(longUrl, JSON.stringify(obj)); //convert into string
-     await redisClient.expire(longUrl,80); //set expire 60 seconds
+     await redisClient.expire(longUrl,80); //set expire 80 seconds
 
         return res.status(201).send({status:true, data:obj})
     }
